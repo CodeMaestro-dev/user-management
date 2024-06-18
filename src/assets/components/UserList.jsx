@@ -10,7 +10,8 @@ export default function UserList({users, onEdit, onDelete}) {
               <tr className="border border-slate-500 px-5 py-2">
                 <th className="border border-slate-500 px-5 py-2">User ID</th>
                 <th className="border border-slate-500 px-5 py-2">Name</th>
-                <th className="border border-slate-500 px-5 py-2">Email</th>
+                <th className="border border-slate-500 px-5 py-2">Age</th>
+                <th className="border border-slate-500 px-5 py-2">DOB</th>
                 <th className="border border-slate-500 px-5 py-2" colSpan="2">
                   Options
                 </th>
@@ -26,7 +27,10 @@ export default function UserList({users, onEdit, onDelete}) {
                     {user.name}
                   </td>
                   <td className="border border-slate-500 px-5 py-2 text-center">
-                    {user.email}
+                    {user.age}
+                  </td>
+                  <td className="border border-slate-500 px-5 py-2 text-center">
+                    {user.dob}
                   </td>
                   <td className="border border-slate-500 px-5 py-2 text-center">
                     <button onClick={()=> onEdit(user.id)}>Edit</button>

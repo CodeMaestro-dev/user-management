@@ -3,23 +3,27 @@ import { useEffect, useState } from "react";
 
 export default function AddUser({ onSave, selectedUser }) {
   const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
+  const [age, setAge] = useState("");
+  const [dob, setDOB] = useState("");
 
   useEffect(() => {
     if(selectedUser) {
-      setEmail(selectedUser.email)
+      setAge(selectedUser.email)
       setName(selectedUser.name)
+      setDOB(selectedUser.dob)
     } else {
-      setEmail("")
+      setAge("")
       setName("")
+      setDOB("")
     }
   }, [selectedUser])
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSave({ id: Date.now(), name: name, email: email });
-    setEmail("");
+    onSave({ id: Date.now(), name: name, age: age, dob: dob });
+    setAge("");
     setName("");
+    setDOB("")
   };
 
   return (
@@ -35,17 +39,30 @@ export default function AddUser({ onSave, selectedUser }) {
           placeholder="User's Name"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          className="bg-[#2B2B2B] focus:bg-slate-500 ps-5 py-3 w-full rounded-md text-white"
+          className="bg-[#2B2B2B] focus:bg-slate-500 px-5 py-3 w-full rounded-md text-white"
+          required
         />
       </div>
       <div className="w-full my-5">
         <input
-          type="email"
-          name="email"
-          placeholder="User's Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          className="bg-[#2B2B2B] focus:bg-slate-500 ps-5 py-3 w-full rounded-md text-white"
+          type="number"
+          name="age"
+          placeholder="User's Age"
+          value={age}
+          onChange={(e) => setAge(e.target.value)}
+          className="bg-[#2B2B2B] focus:bg-slate-500 px-5 py-3 w-full rounded-md text-white"
+          required
+        />
+      </div>
+      <div className="w-full my-5">
+        <input
+          type="date"
+          name="dob"
+          placeholder="User's Date of Birth"
+          value={dob}
+          onChange={(e) => setDOB(e.target.value)}
+          className="bg-[#2B2B2B] focus:bg-slate-500 px-5 py-3 w-full rounded-md text-white"
+          required
         />
       </div>
       <div className="w-full my-5">
