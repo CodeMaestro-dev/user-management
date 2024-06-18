@@ -4,7 +4,7 @@ export default function UserList({users, onEdit, onDelete}) {
   return (
     <>
       {users ? (
-        <div className="col-start-1 col-end-9 md:col-start-2 md:col-end-8 lg:col-start-3 lg:col-end-7 overflow-scroll">
+        <div className="col-start-1 col-end-9 md:col-start-2 md:col-end-8 lg:col-start-3 lg:col-end-7 overflow-auto">
           <table className="border border-slate-500 px-5 py-2 w-full">
             <thead>
               <tr className="border border-slate-500 px-5 py-2">
